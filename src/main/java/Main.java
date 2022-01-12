@@ -16,12 +16,43 @@ public class Main {
 
     public static void main(String[] args) {
         initPersonnage();
+        short ennemi = 5;
+        ennemi = attaqueJoueur(ennemi);
+        System.out.println("il reste " + ennemi + " points de vie à l'ennemi !");
     }
-    public static void initPersonnage (){
+
+    public static void initPersonnage() {
         System.out.println("Saisir le nom de votre personnage ?");
         Scanner scanner = new Scanner(System.in);
         nomPersonnage = scanner.nextLine();
-        System.out.println("OK " + Util.color(nomPersonnage, Color.GREEN) + " ! C'est parti");
+        System.out.println("OK " + Util.color(nomPersonnage, Color.GREEN) + " ! C'est parti !");
         ptsDeVie = MAX_PTS_VIE;
-        ptsBouclier = PTS_BOUCLIER;
-        scanner.close();}}
+
+        ptsBouclier = bouclierActif ? PTS_BOUCLIER : 0;
+        scanner.close();
+    }
+
+    public static boolean hasard(double pourcentage) {
+        //pourcentage < résultat du chiffre random => true
+        // sinon faux
+        return pourcentage < Math.random();
+    }
+
+    public static short nombreAuHasard(short nombre) {
+    return (short) Math.round(Math.random() * nombre );
+    }
+
+    public static short attaqueJoueur(short ptsVieEnnemi) {
+        //Déterminer la force de l'attaque du joueur
+        short forceAttaque = nombreAuHasard(MAX_ATTAQUE_JOUEUR);
+        //Retrancher les points de l'attaque
+        ptsVieEnnemi -= forceAttaque;
+        //Afficher les caractéristiques
+        System.out.println(Util.color(nomPersonnage, Color.GREEN) + " attaque l'"
+                + Util.color("ennemi", Color.YELLOW) + " ! Il lui fait perdre "
+                + Util.color(forceAttaque, Color.PURPLE) + " points de dommages");
+        //Retourner le nombre de points de vie de l'ennemi après l'attaque
+        return ptsVieEnnemi;
+    }
+}
+
