@@ -74,7 +74,7 @@ public class MainTest {
     @Test
     public void exo06() throws Exception {
         TestUtils.checkStaticMethod("Main", "attaqueJoueur", "short", short.class);
-        /*
+
         Main.nomPersonnage = "test";
         ByteArrayOutputStream outContent;
         outContent = new ByteArrayOutputStream();
@@ -95,7 +95,7 @@ public class MainTest {
                     "" + Util.color("test", Color.GREEN) + " attaque l'" + Util.color("ennemi", Color.YELLOW)
                             + " ! Il lui fait perdre " + Util.color("3", Color.PURPLE) + " points de dommages");
         }
-        */
+
 
     }
 
