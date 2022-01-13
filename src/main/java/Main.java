@@ -15,14 +15,8 @@ public class Main {
     public static boolean bouclierActif = true;
 
     public static void main(String[] args) {
-        initPersonnage();
-        afficherPersonnage();
-        bouclierActif = true;
-        short ennemi = 5;
-        ennemi = attaqueJoueur(ennemi);
-        System.out.println("il reste " + Util.color(ennemi, Color.RED) + " points de vie à l'ennemi !");
-        attaqueEnnemi();
-        short[] ennemis = initEnnemis();
+
+        //TODO exercice 11
     }
 
     public static void initPersonnage() {
