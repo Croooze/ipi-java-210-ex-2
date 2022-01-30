@@ -13,16 +13,19 @@ public class Main {
     public static short ptsBouclier;
     public static short nbEnnemisTues;
     public static boolean bouclierActif = true;
+    public static short ptsDeVieEnnemi;
 
     public static void main(String[] args) {
+        //TODO exercice 11
         initPersonnage();
-        afficherPersonnage();
-        bouclierActif = true;
-        short ennemi = 5;
-        ennemi = attaqueJoueur(ennemi);
-        System.out.println("il reste " + Util.color(ennemi, Color.RED) + " points de vie à l'ennemi !");
-        attaqueEnnemi();
         short[] ennemis = initEnnemis();
+        /* ennemis[i] = nombreAuHasard(MAX_VIE_ENNEMI);
+         */
+        System.out.println("==========================================================");
+        System.out.println("Combat avec un ennemi possédant " + ptsDeVieEnnemi + " points de vie !");
+        afficherPersonnage();
+        System.out.print(" vs ennemi (" + ptsDeVieEnnemi +")");
+
     }
 
     public static void initPersonnage() {
@@ -32,7 +35,7 @@ public class Main {
         System.out.println("OK " + Util.color(nomPersonnage, Color.GREEN) + " ! C'est parti !");
         ptsDeVie = MAX_PTS_VIE;
         ptsBouclier = bouclierActif ? PTS_BOUCLIER : 0;
-        scanner.close();
+        // scanner.close();
     }
 
     public static boolean hasard(double pourcentage) {
@@ -98,8 +101,10 @@ public class Main {
         for (int i = 0; i < nbEnnemis; i++){
             ennemis[i] = nombreAuHasard(MAX_VIE_ENNEMI);
             System.out.println("Ennemi numéro " + (i+1) + " : " + Util.color(ennemis[i],Color.PURPLE));
+            ennemis[i] = ptsDeVieEnnemi;
         }
         return ennemis;
+        int ennemis = initEnnemis();
     }
 
     public static short attaque(short ennemi, boolean joueurAttaque){
