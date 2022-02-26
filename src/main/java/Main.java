@@ -43,6 +43,7 @@ public class Main {
         }
     }
 
+
     public static void initPersonnage() {
         System.out.println("Saisir le nom de votre personnage");
         Scanner scanner = new Scanner(System.in);
