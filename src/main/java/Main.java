@@ -32,7 +32,7 @@ public class Main {
                 joueurAttaque = !joueurAttaque;
                 afficherPersonnage();
                 System.out.println(" vs " + Util.color("ennemi" , Color.YELLOW) + " (" +
-                Util.color((short) Math.max(vieEnnemis, 0), Color.PURPLE) + ")");
+                        Util.color((short) Math.max(vieEnnemis, 0), Color.PURPLE) + ")");
                 attaqueJoueur(ptsDeVieEnnemi);
                 attaqueEnnemi();
                 if (ptsDeVie < 1){
